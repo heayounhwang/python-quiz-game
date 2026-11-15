@@ -1,0 +1,30 @@
+Command: python3 -m unittest discover -s tests -v
+Python 3.14.4 (WSL Ubuntu)
+test_add_and_restart (test_game.GameTests.test_add_and_restart) ... ok
+test_atomic_replace_failure_preserves_old_file (test_game.GameTests.test_atomic_replace_failure_preserves_old_file) ... ok
+test_corrupt_json_and_schema (test_game.GameTests.test_corrupt_json_and_schema) ... ok
+test_defaults (test_game.GameTests.test_defaults) ... ok
+test_empty_quizzes (test_game.GameTests.test_empty_quizzes) ... ok
+test_interrupted_add_does_not_append (test_game.GameTests.test_interrupted_add_does_not_append) ... ok
+test_interrupted_play_retains_previous_best (test_game.GameTests.test_interrupted_play_retains_previous_best) ... ok
+test_invalid_numbers_and_whitespace (test_game.GameTests.test_invalid_numbers_and_whitespace) ... ok
+test_invalid_utf8 (test_game.GameTests.test_invalid_utf8) ... ok
+test_list (test_game.GameTests.test_list) ... ok
+test_menu_interrupts_save_and_exit (test_game.GameTests.test_menu_interrupts_save_and_exit) ... ok
+test_missing_file_recovered_on_exit (test_game.GameTests.test_missing_file_recovered_on_exit) ... ok
+test_play_perfect_and_lower_score (test_game.GameTests.test_play_perfect_and_lower_score) ... ok
+test_quiz_display_and_answers (test_game.GameTests.test_quiz_display_and_answers) ... ok
+test_quiz_schema (test_game.GameTests.test_quiz_schema) ... ok
+test_read_permission_error (test_game.GameTests.test_read_permission_error) ... ok
+test_required_text (test_game.GameTests.test_required_text) ... ok
+test_state_path_is_project_root (test_game.GameTests.test_state_path_is_project_root) ... ok
+test_write_permission_error (test_game.GameTests.test_write_permission_error) ... ok
+test_zero_score_is_played (test_game.GameTests.test_zero_score_is_played) ... ok
+test_actual_cli_add_play_restart (test_game.ProcessTests.test_actual_cli_add_play_restart) ... ok
+test_actual_ctrl_c (test_game.ProcessTests.test_actual_ctrl_c) ... ok
+test_actual_eof (test_game.ProcessTests.test_actual_eof) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.226s
+
+OK

@@ -71,8 +71,10 @@ class QuizGame:
         answer = read_number("정답 번호 (1~4): ", 1, 4)
         # 모든 입력이 끝난 뒤 추가하므로 입력 중단 시 불완전한 문제가 남지 않는다.
         self.quizzes.append(Quiz(question, choices, answer))
-        self.save_state()
-        print("퀴즈가 추가되었습니다.")
+        if self.save_state():
+            print("퀴즈가 추가되고 저장되었습니다.")
+        else:
+            print("퀴즈가 메모리에 추가되었습니다. 파일 저장은 실패했습니다.")
 
     def list_quizzes(self):
         if not self.quizzes:

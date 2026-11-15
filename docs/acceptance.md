@@ -2,7 +2,7 @@
 
 검수일: 2026-11-15 (Asia/Seoul). 평가자의 최종 판정을 대신하지 않으며 실제 실행 결과만 기록합니다.
 
-**코드·자동 검증·GitHub 작업은 완료했습니다. 직접 캡처할 제출 이미지는 아직 미완료입니다.**
+**코드·자동 검증·Git 실습과 학습자가 직접 캡처한 제출 이미지 정리를 완료했습니다.**
 
 | 필수 조건 | 결과 | 확인 근거 |
 |---|---|---|
@@ -26,9 +26,9 @@
 | clone·복제본 수정/commit/push·원본 pull | PASS | git-practice.txt의 실제 명령·출력과 HEAD 일치 확인 |
 | 기존 GitHub 저장소 push | PASS | main과 codex/quiz-play push 성공 |
 | README 필수 6개 항목 | PASS | 개요·주제 선정 이유·실행·기능·구조·state.json |
-| 개발환경 스크린샷 | FAIL (미완료) | 학습자 직접 캡처 필요 |
-| 메뉴·추가·목록·풀이·점수 스크린샷 | FAIL (미완료) | 학습자 직접 캡처 필요 |
-| Git 그래프·브랜치·clone/pull 스크린샷 | FAIL (미완료) | 텍스트 증거는 완료, 이미지 캡처 필요 |
+| 개발환경 스크린샷 | PASS | screenshots/environment.png: WSL Python·Git 버전 |
+| 메뉴·추가·목록·풀이·점수 스크린샷 | PASS | screenshots/의 menu·add_quiz·list·play·result·score.png |
+| Git 그래프·브랜치·clone/pull 스크린샷 | PASS | screenshots/의 git-log·branch-merge·clone-pull.png |
 
 ## 실제 검증 결과
 
@@ -58,17 +58,16 @@
 1차 미션 자료입니다. 거기에 표시된 1차 평가 결과를 이번 Python 미션의 결과로 옮기지 않았습니다.
 문서의 신규 저장소 생성 설명도 이미 완료한 작업을 반복하는 지시로 적용하지 않았습니다.
 
-## 남은 제출 단계
+## 학습자 직접 실행 및 제출 이미지 확인
 
-README의 캡처 목록에 따라 학습자가 직접 이미지를 준비해야 합니다.
-이미지 검토 후 저장소에 추가·커밋·push해야 제출 증거까지 완료됩니다.
-현재 상태를 **필수 항목 100% PASS**라고 표시하지 않습니다.
+직접 제공한 원본 PNG 15개를 편집 없이 보존했습니다.
+[이미지 목록](screenshots/README.md)에서 각 제출 증거에 접근할 수 있습니다.
+추가한 무드보드 문제, 총 6개 목록, 100점 결과, 종료 후 6개·100점 유지,
+문자·범위·빈 입력 안내, 공백 입력 후 조회, Ctrl+C 종료를 화면에서도 확인했습니다.
 
-첫 단계는 WSL 터미널에서 다음 명령을 실행해 메뉴 화면을 캡처하는 것입니다.
+공백 캡처에서는 앞쪽 공백이 보이며, 뒤쪽 공백 처리는 자동 테스트로 검증했습니다.
+환경 캡처는 WSL 터미널이며 VS Code 화면은 포함하지 않습니다.
+clone·pull 이미지는 실제 실습 후 저장된 로그를 화면에 출력한 증거입니다.
+최종 평가는 평가자의 확인에 따르며, 이 검수표는 확인 가능한 필수 항목의 자체 점검 결과입니다.
 
-```bash
-cd /home/don61/codyssey-workspace/python-quiz-game
-python3 main.py
-```
-
-메뉴 5개와 실행 명령이 보이게 캡처합니다. 이후 단계는 한 번에 하나씩 안내합니다.
+제출 저장소: https://github.com/heayounhwang/python-quiz-game

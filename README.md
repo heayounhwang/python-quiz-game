@@ -146,13 +146,13 @@ git status --short --branch
 
 제출 저장소: https://github.com/heayounhwang/python-quiz-game
 
-### 학습자 직접 캡처 목록
+### 학습자 직접 캡처한 제출 증거
 
-아직 이미지가 없으면 제출 완료로 보지 않습니다. `docs/screenshots/`에 다음 파일을 넣으세요.
+학습자가 직접 제공한 PNG 15개를 저장했습니다. [전체 이미지 목록과 설명](docs/screenshots/README.md)에서 확인할 수 있습니다.
 
 | 파일 | 캡처할 내용 |
 |---|---|
-| environment.png | VS Code WSL 터미널, `pwd`, `python3 --version`, `git --version` |
+| environment.png | WSL 터미널의 Python 3.14.4 및 Git 2.53.0 |
 | menu.png | `python3 main.py` 실행 후 메뉴 5개 |
 | add_quiz.png | 메뉴 2에서 새 문제·선택지 4개·정답 입력 및 추가 안내 |
 | list.png | 메뉴 3에서 추가한 문제가 포함된 목록 |
@@ -162,8 +162,8 @@ git status --short --branch
 | branch-merge.png | `git branch -avv` 및 `git log --merges --oneline` |
 | clone-pull.png | `cat docs/git-practice.txt`의 clone·복제본 수정/push·원본 pull 결과 |
 
-캡처 후에는 이미지 검토, `git add docs/screenshots`, 커밋, push가 필요합니다.
-이미지에 비밀번호나 토큰이 보이지 않는지 확인하세요.
+메뉴·추가·목록·풀이·점수·재시작·입력 오류·Ctrl+C·Git 증거를 정리했습니다.
+이미지는 실제 화면이며 로그 이미지의 커밋 수와 clean 상태는 이미지 정리 커밋 이전 시점입니다.
 
 ## 코드 이해하기
 

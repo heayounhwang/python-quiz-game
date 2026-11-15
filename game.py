@@ -74,7 +74,10 @@ class QuizGame:
             print(f"[{number}] {quiz.question}")
 
     def show_score(self):
-        print("점수 확인을 준비 중입니다.")
+        if self.best_score is None:
+            print("아직 완료한 퀴즈가 없습니다. 먼저 퀴즈를 풀어 보세요.")
+        else:
+            print(f"최고 점수: {self.best_score}점 (100점 만점)")
 
     def save_state(self):
         pass

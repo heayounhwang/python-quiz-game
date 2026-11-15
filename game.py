@@ -30,7 +30,30 @@ class QuizGame:
             print("게임을 종료합니다.")
 
     def play(self):
-        print("퀴즈 풀기를 준비 중입니다.")
+        if not self.quizzes:
+            print("등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
+            return
+        correct = 0
+        total = len(self.quizzes)
+        print(f"\n퀴즈를 시작합니다! 총 {total}문제")
+        for number, quiz in enumerate(self.quizzes, start=1):
+            print(f"\n[문제 {number}/{total}]")
+            quiz.display()
+            answer = read_number("정답 번호 (1~4): ", 1, 4)
+            if quiz.check_answer(answer):
+                correct += 1
+                print("정답입니다!")
+            else:
+                print(f"오답입니다. 정답은 {quiz.answer}번입니다.")
+        score = round(correct / total * 100)
+        print(f"\n결과: {total}문제 중 {correct}문제 정답! ({score}점)")
+        self.update_best_score(score)
+
+    def update_best_score(self, score):
+        if self.best_score is None or score > self.best_score:
+            self.best_score = score
+            print("새로운 최고 점수입니다!")
+        self.save_state()
 
     def add_quiz(self):
         print("퀴즈 추가를 준비 중입니다.")

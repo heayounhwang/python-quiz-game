@@ -56,7 +56,14 @@ class QuizGame:
         self.save_state()
 
     def add_quiz(self):
-        print("퀴즈 추가를 준비 중입니다.")
+        print("\n새로운 퀴즈를 추가합니다.")
+        question = read_text("문제를 입력하세요: ")
+        choices = [read_text(f"선택지 {number}: ") for number in range(1, 5)]
+        answer = read_number("정답 번호 (1~4): ", 1, 4)
+        # 모든 입력이 끝난 뒤 추가하므로 입력 중단 시 불완전한 문제가 남지 않는다.
+        self.quizzes.append(Quiz(question, choices, answer))
+        self.save_state()
+        print("퀴즈가 추가되었습니다.")
 
     def list_quizzes(self):
         print("퀴즈 목록을 준비 중입니다.")

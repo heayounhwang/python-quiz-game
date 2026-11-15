@@ -177,3 +177,15 @@ git status --short --branch
 
 `git clone`은 저장소 전체를 새 폴더로 복제하고, `git pull`은 현재 저장소에 원격 변경을 가져옵니다.
 `checkout`은 작업 브랜치를 바꾸거나 만들고, `merge`는 브랜치의 변경을 합칩니다.
+
+## 복제 환경에서 확인한 실행 절차
+
+별도 폴더로 clone한 저장소에서도 의존성 설치 없이 다음 명령으로 검증합니다.
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+복제본에서 이 실행 안내를 추가해 commit·push한 뒤 원래 작업 폴더에서
+`git pull --ff-only origin main`으로 가져오는 실습을 수행했습니다.
+실제 명령과 결과는 `docs/git-practice.txt`에서 확인할 수 있습니다.

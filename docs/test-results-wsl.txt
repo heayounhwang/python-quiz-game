@@ -25,6 +25,6 @@ test_actual_ctrl_c (test_game.ProcessTests.test_actual_ctrl_c) ... ok
 test_actual_eof (test_game.ProcessTests.test_actual_eof) ... ok
 
 ----------------------------------------------------------------------
-Ran 23 tests in 0.226s
+Ran 23 tests in 0.286s
 
 OK

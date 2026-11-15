@@ -182,7 +182,7 @@ class ProcessTests(unittest.TestCase):
             shutil.copy2(ROOT / name, self.root / name)
 
     def run_cli(self, text):
-        result = subprocess.run([sys.executable, str(self.root / 'main.py')],
+        result = subprocess.run([sys.executable, '-X', 'utf8', str(self.root / 'main.py')],
                                 input=text, text=True, encoding='utf-8',
                                 capture_output=True, cwd=self.root.parent, timeout=10)
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -204,7 +204,7 @@ class ProcessTests(unittest.TestCase):
 
     @unittest.skipUnless(os.name == 'posix', '실제 SIGINT 검증은 WSL/Linux에서 수행')
     def test_actual_ctrl_c(self):
-        process = subprocess.Popen([sys.executable, '-u', str(self.root / 'main.py')],
+        process = subprocess.Popen([sys.executable, '-X', 'utf8', '-u', str(self.root / 'main.py')],
                                    stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE, text=True, encoding='utf-8')
         try:

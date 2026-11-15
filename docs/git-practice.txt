@@ -1,0 +1,149 @@
+Actual Git practice transcript
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git diff --check
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git reflog --all --date=iso
+8ae6dd5 refs/heads/main@{2026-11-15 21:47:27 +0900}: commit: Test: 기능 예외 및 실제 프로세스 검증 23개 추가와 저장 실패 안내 개선
+8ae6dd5 HEAD@{2026-11-15 21:47:27 +0900}: commit: Test: 기능 예외 및 실제 프로세스 검증 23개 추가와 저장 실패 안내 개선
+9d25aa7 refs/heads/codex/quiz-play@{2026-11-15 21:44:40 +0900}: commit: Feat: 퀴즈 출제 정오답 안내 및 백분율 결과 구현
+45c8f32 refs/heads/main@{2026-11-15 21:44:40 +0900}: commit: Feat: UTF-8 JSON 저장 불러오기와 손상 및 파일 오류 복구
+53f1c63 refs/heads/main@{2026-11-15 21:44:40 +0900}: commit: Feat: 최고 점수 조회와 미플레이 상태 구분
+8ae2581 refs/heads/main@{2026-11-15 21:44:40 +0900}: commit: Feat: 등록된 문제 목록과 빈 목록 안내 구현
+0ecf86c refs/heads/main@{2026-11-15 21:44:40 +0900}: commit: Feat: 공백 검증과 정답 범위 확인을 포함한 퀴즈 등록 구현
+3bfcf5c refs/heads/main@{2026-11-15 21:44:40 +0900}: merge codex/quiz-play: Merge made by the 'ort' strategy.
+45c8f32 HEAD@{2026-11-15 21:44:40 +0900}: commit: Feat: UTF-8 JSON 저장 불러오기와 손상 및 파일 오류 복구
+53f1c63 HEAD@{2026-11-15 21:44:40 +0900}: commit: Feat: 최고 점수 조회와 미플레이 상태 구분
+8ae2581 HEAD@{2026-11-15 21:44:40 +0900}: commit: Feat: 등록된 문제 목록과 빈 목록 안내 구현
+0ecf86c HEAD@{2026-11-15 21:44:40 +0900}: commit: Feat: 공백 검증과 정답 범위 확인을 포함한 퀴즈 등록 구현
+3bfcf5c HEAD@{2026-11-15 21:44:40 +0900}: merge codex/quiz-play: Merge made by the 'ort' strategy.
+58c226e HEAD@{2026-11-15 21:44:40 +0900}: checkout: moving from codex/quiz-play to main
+9d25aa7 HEAD@{2026-11-15 21:44:40 +0900}: commit: Feat: 퀴즈 출제 정오답 안내 및 백분율 결과 구현
+58c226e refs/heads/codex/quiz-play@{2026-11-15 21:44:39 +0900}: branch: Created from HEAD
+58c226e refs/heads/main@{2026-11-15 21:44:39 +0900}: commit: Refactor: QuizGame으로 메뉴와 게임 책임 분리
+4731d4d refs/heads/main@{2026-11-15 21:44:39 +0900}: commit: Feat: 패션디자인 기초 사지선다 기본 퀴즈 5개 작성
+0402681 refs/heads/main@{2026-11-15 21:44:39 +0900}: commit: Feat: Quiz 클래스의 문제 출력 정답 확인 및 데이터 검증 구현
+ae55746 refs/heads/main@{2026-11-15 21:44:39 +0900}: commit: Feat: 반복 메뉴와 숫자 입력 검증 및 안전한 종료 구현
+58c226e HEAD@{2026-11-15 21:44:39 +0900}: checkout: moving from main to codex/quiz-play
+58c226e HEAD@{2026-11-15 21:44:39 +0900}: commit: Refactor: QuizGame으로 메뉴와 게임 책임 분리
+4731d4d HEAD@{2026-11-15 21:44:39 +0900}: commit: Feat: 패션디자인 기초 사지선다 기본 퀴즈 5개 작성
+0402681 HEAD@{2026-11-15 21:44:39 +0900}: commit: Feat: Quiz 클래스의 문제 출력 정답 확인 및 데이터 검증 구현
+ae55746 HEAD@{2026-11-15 21:44:39 +0900}: commit: Feat: 반복 메뉴와 숫자 입력 검증 및 안전한 종료 구현
+57dc40d refs/remotes/origin/main@{2026-11-15 18:56:26 +0900}: update by push
+57dc40d refs/heads/main@{2026-11-15 18:43:07 +0900}: commit (initial): Initial: 프로젝트 기본 파일 생성
+57dc40d HEAD@{2026-11-15 18:43:07 +0900}: commit (initial): Initial: 프로젝트 기본 파일 생성
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git log --oneline --graph --all
+* 8ae6dd5 Test: 기능 예외 및 실제 프로세스 검증 23개 추가와 저장 실패 안내 개선
+* 45c8f32 Feat: UTF-8 JSON 저장 불러오기와 손상 및 파일 오류 복구
+* 53f1c63 Feat: 최고 점수 조회와 미플레이 상태 구분
+* 8ae2581 Feat: 등록된 문제 목록과 빈 목록 안내 구현
+* 0ecf86c Feat: 공백 검증과 정답 범위 확인을 포함한 퀴즈 등록 구현
+*   3bfcf5c Merge: 퀴즈 풀기 기능 브랜치를 main에 병합
+|\  
+| * 9d25aa7 Feat: 퀴즈 출제 정오답 안내 및 백분율 결과 구현
+|/  
+* 58c226e Refactor: QuizGame으로 메뉴와 게임 책임 분리
+* 4731d4d Feat: 패션디자인 기초 사지선다 기본 퀴즈 5개 작성
+* 0402681 Feat: Quiz 클래스의 문제 출력 정답 확인 및 데이터 검증 구현
+* ae55746 Feat: 반복 메뉴와 숫자 입력 검증 및 안전한 종료 구현
+* 57dc40d Initial: 프로젝트 기본 파일 생성
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git branch -avv
+  codex/quiz-play     9d25aa7 Feat: 퀴즈 출제 정오답 안내 및 백분율 결과 구현
+* main                8ae6dd5 [origin/main: ahead 11] Test: 기능 예외 및 실제 프로세스 검증 23개 추가와 저장 실패 안내 개선
+  remotes/origin/main 57dc40d Initial: 프로젝트 기본 파일 생성
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git add README.md .gitignore docs/screenshots/.gitkeep docs/smoke-wsl.txt
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git commit -m Docs: 실행 데이터 구조와 테스트 및 제출 캡처 안내 완성
+[main 647bf48] Docs: 실행 데이터 구조와 테스트 및 제출 캡처 안내 완성
+ 4 files changed, 217 insertions(+), 7 deletions(-)
+ create mode 100644 docs/screenshots/.gitkeep
+ create mode 100644 docs/smoke-wsl.txt
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git push origin main codex/quiz-play
+To https://github.com/heayounhwang/python-quiz-game.git
+   57dc40d..647bf48  main -> main
+ * [new branch]      codex/quiz-play -> codex/quiz-play
+
+$ (cwd=/home/don61/codyssey-workspace) git clone https://github.com/heayounhwang/python-quiz-game.git /home/don61/codyssey-workspace/python-quiz-game-clone-practice
+Cloning into '/home/don61/codyssey-workspace/python-quiz-game-clone-practice'...
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game-clone-practice) git status --short --branch
+## main...origin/main
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game-clone-practice) python3 -m unittest discover -s tests -v
+test_add_and_restart (test_game.GameTests.test_add_and_restart) ... ok
+test_atomic_replace_failure_preserves_old_file (test_game.GameTests.test_atomic_replace_failure_preserves_old_file) ... ok
+test_corrupt_json_and_schema (test_game.GameTests.test_corrupt_json_and_schema) ... ok
+test_defaults (test_game.GameTests.test_defaults) ... ok
+test_empty_quizzes (test_game.GameTests.test_empty_quizzes) ... ok
+test_interrupted_add_does_not_append (test_game.GameTests.test_interrupted_add_does_not_append) ... ok
+test_interrupted_play_retains_previous_best (test_game.GameTests.test_interrupted_play_retains_previous_best) ... ok
+test_invalid_numbers_and_whitespace (test_game.GameTests.test_invalid_numbers_and_whitespace) ... ok
+test_invalid_utf8 (test_game.GameTests.test_invalid_utf8) ... ok
+test_list (test_game.GameTests.test_list) ... ok
+test_menu_interrupts_save_and_exit (test_game.GameTests.test_menu_interrupts_save_and_exit) ... ok
+test_missing_file_recovered_on_exit (test_game.GameTests.test_missing_file_recovered_on_exit) ... ok
+test_play_perfect_and_lower_score (test_game.GameTests.test_play_perfect_and_lower_score) ... ok
+test_quiz_display_and_answers (test_game.GameTests.test_quiz_display_and_answers) ... ok
+test_quiz_schema (test_game.GameTests.test_quiz_schema) ... ok
+test_read_permission_error (test_game.GameTests.test_read_permission_error) ... ok
+test_required_text (test_game.GameTests.test_required_text) ... ok
+test_state_path_is_project_root (test_game.GameTests.test_state_path_is_project_root) ... ok
+test_write_permission_error (test_game.GameTests.test_write_permission_error) ... ok
+test_zero_score_is_played (test_game.GameTests.test_zero_score_is_played) ... ok
+test_actual_cli_add_play_restart (test_game.ProcessTests.test_actual_cli_add_play_restart) ... ok
+test_actual_ctrl_c (test_game.ProcessTests.test_actual_ctrl_c) ... ok
+test_actual_eof (test_game.ProcessTests.test_actual_eof) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.290s
+
+OK
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game-clone-practice) git add README.md
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game-clone-practice) git commit -m Docs: 복제 환경에서의 테스트 실행 절차 추가
+[main d33805f] Docs: 복제 환경에서의 테스트 실행 절차 추가
+ 1 file changed, 12 insertions(+)
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game-clone-practice) git rev-parse HEAD
+d33805f1e26da1bf2eb484c90754920d59a917d0
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game-clone-practice) git push origin main
+To https://github.com/heayounhwang/python-quiz-game.git
+   647bf48..d33805f  main -> main
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git pull --ff-only origin main
+Updating 647bf48..d33805f
+Fast-forward
+ README.md | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+From https://github.com/heayounhwang/python-quiz-game
+ * branch            main       -> FETCH_HEAD
+   647bf48..d33805f  main       -> origin/main
+
+PASS: Original HEAD equals clone commit; README change is present after pull.
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git log --oneline --graph --all
+* d33805f Docs: 복제 환경에서의 테스트 실행 절차 추가
+* 647bf48 Docs: 실행 데이터 구조와 테스트 및 제출 캡처 안내 완성
+* 8ae6dd5 Test: 기능 예외 및 실제 프로세스 검증 23개 추가와 저장 실패 안내 개선
+* 45c8f32 Feat: UTF-8 JSON 저장 불러오기와 손상 및 파일 오류 복구
+* 53f1c63 Feat: 최고 점수 조회와 미플레이 상태 구분
+* 8ae2581 Feat: 등록된 문제 목록과 빈 목록 안내 구현
+* 0ecf86c Feat: 공백 검증과 정답 범위 확인을 포함한 퀴즈 등록 구현
+*   3bfcf5c Merge: 퀴즈 풀기 기능 브랜치를 main에 병합
+|\  
+| * 9d25aa7 Feat: 퀴즈 출제 정오답 안내 및 백분율 결과 구현
+|/  
+* 58c226e Refactor: QuizGame으로 메뉴와 게임 책임 분리
+* 4731d4d Feat: 패션디자인 기초 사지선다 기본 퀴즈 5개 작성
+* 0402681 Feat: Quiz 클래스의 문제 출력 정답 확인 및 데이터 검증 구현
+* ae55746 Feat: 반복 메뉴와 숫자 입력 검증 및 안전한 종료 구현
+* 57dc40d Initial: 프로젝트 기본 파일 생성
+
+$ (cwd=/home/don61/codyssey-workspace/python-quiz-game) git status --short --branch
+## main...origin/main
+?? docs/git-practice.txt

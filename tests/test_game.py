@@ -29,6 +29,9 @@ class GameTests(unittest.TestCase):
         self.redirect.__enter__()
         self.addCleanup(self.redirect.__exit__, None, None, None)
         self.game = QuizGame(self.path)
+        sampler = patch("game.random.sample", side_effect=lambda quizzes, count: list(quizzes[:count]))
+        sampler.start()
+        self.addCleanup(sampler.stop)
 
     def test_defaults(self):
         self.assertGreaterEqual(len(self.game.quizzes), 5)
@@ -60,7 +63,7 @@ class GameTests(unittest.TestCase):
             self.assertEqual(read_text('?'), '질문')
 
     def test_add_and_restart(self):
-        with patch('builtins.input', side_effect=['새 문제', '가', '나', '다', '라', 'x', '5', ' 3 ']):
+        with patch('builtins.input', side_effect=['새 문제', '가', '나', '다', '라', 'x', '5', ' 3 ', '']):
             self.game.add_quiz()
         restored = QuizGame(self.path)
         self.assertEqual(len(restored.quizzes), 6)
@@ -74,10 +77,10 @@ class GameTests(unittest.TestCase):
             self.assertEqual(len(QuizGame(self.path).quizzes), 5)
 
     def test_play_perfect_and_lower_score(self):
-        with patch('builtins.input', side_effect=['1', '2', '3', '4', '1']):
+        with patch('builtins.input', side_effect=['5', '1', '2', '3', '4', '1']):
             self.game.play()
         self.assertEqual(self.game.best_score, 100)
-        with patch('builtins.input', return_value='4'):
+        with patch('builtins.input', side_effect=['5', '4', '4', '4', '4', '4']):
             self.game.play()
         self.assertEqual(QuizGame(self.path).best_score, 100)
         self.assertIn('오답입니다', self.output.getvalue())
@@ -86,7 +89,7 @@ class GameTests(unittest.TestCase):
     def test_zero_score_is_played(self):
         self.game.show_score()
         self.assertIn('아직 완료한 퀴즈가 없습니다', self.output.getvalue())
-        with patch('builtins.input', side_effect=['2', '1', '1', '1', '2']):
+        with patch('builtins.input', side_effect=['5', '2', '1', '1', '1', '2']):
             self.game.play()
         restored = QuizGame(self.path)
         self.assertEqual(restored.best_score, 0)
@@ -163,7 +166,7 @@ class GameTests(unittest.TestCase):
 
     def test_interrupted_play_retains_previous_best(self):
         self.game.best_score = 40
-        with patch('builtins.input', side_effect=['1', '1', EOFError]):
+        with patch('builtins.input', side_effect=['1', '5', '1', EOFError]):
             self.game.run()
         self.assertEqual(QuizGame(self.path).best_score, 40)
 
@@ -190,13 +193,13 @@ class ProcessTests(unittest.TestCase):
         return result.stdout
 
     def test_actual_cli_add_play_restart(self):
-        output = self.run_cli('abc\n\n9\n 2 \n추가 문제\n가\n나\n다\n라\n2\n3\n1\n1\n2\n3\n4\n1\n2\n4\n5\n')
+        output = self.run_cli('abc\n\n9\n 2 \n추가 문제\n가\n나\n다\n라\n2\n\n3\n1\n6\n1\n1\n1\n1\n1\n1\n4\n5\n')
         self.assertIn('총 6개', output)
-        self.assertIn('6문제 중 6문제 정답', output)
-        self.assertIn('최고 점수: 100점', output)
+        self.assertIn('6문제 중 2문제 정답', output)
+        self.assertIn('최고 점수: 33점', output)
         restarted = self.run_cli('3\n4\n5\n')
         self.assertIn('추가 문제', restarted)
-        self.assertIn('최고 점수: 100점', restarted)
+        self.assertIn('최고 점수: 33점', restarted)
 
     def test_actual_eof(self):
         self.assertIn('안전하게 종료', self.run_cli(''))
@@ -210,7 +213,7 @@ class ProcessTests(unittest.TestCase):
         try:
             # 메뉴 입력 프롬프트까지 읽고 실제 Ctrl+C와 같은 SIGINT를 전송한다.
             output = ''
-            while not output.endswith('메뉴 번호를 선택하세요 (1~5): '):
+            while not output.endswith('메뉴 번호를 선택하세요 (1~7): '):
                 character = process.stdout.read(1)
                 self.assertTrue(character, output)
                 output += character

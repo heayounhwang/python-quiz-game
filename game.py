@@ -10,6 +10,9 @@ from input_helpers import read_number, read_text
 from quiz import Quiz
 
 
+HINT_PENALTY = 10
+
+
 class QuizGame:
     def __init__(self, state_path=None):
         # 현재 터미널 위치와 관계없이 프로젝트 루트에 저장한다.
@@ -43,21 +46,38 @@ class QuizGame:
         if not self.quizzes:
             print("등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
             return
-        correct = 0
         total = read_number(f"풀 문제 수 (1~{len(self.quizzes)}): ", 1, len(self.quizzes))
+        # 원래 목록은 바꾸지 않고, 중복 없이 무작위로 선택·정렬한다.
         selected = random.sample(self.quizzes, total)
-        print(f"\n퀴즈를 시작합니다! 총 {total}문제")
+        correct = 0
+        hints_used = 0
+        print(f"\n퀴즈를 시작합니다! 총 {total}문제 (랜덤 출제)")
+        print(f"힌트는 0번: 문제당 한 번, 최종 점수에서 {HINT_PENALTY}점 차감")
         for number, quiz in enumerate(selected, start=1):
             print(f"\n[문제 {number}/{total}]")
             quiz.display()
-            answer = read_number("정답 번호 (1~4): ", 1, 4)
+            used_hint = False
+            while True:
+                answer = read_number("정답 번호 (1~4, 힌트 0): ", 0, 4)
+                if answer != 0:
+                    break
+                if used_hint:
+                    print("이미 이 문제의 힌트를 사용했습니다. 추가 감점은 없습니다.")
+                else:
+                    used_hint = True
+                    hints_used += 1
+                    quiz.show_hint()
+                    print(f"최종 점수에서 {HINT_PENALTY}점 차감됩니다.")
             if quiz.check_answer(answer):
                 correct += 1
                 print("정답입니다!")
             else:
                 print(f"오답입니다. 정답은 {quiz.answer}번입니다.")
-        score = round(correct / total * 100)
+        base_score = round(correct / total * 100)
+        penalty = hints_used * HINT_PENALTY
+        score = max(0, base_score - penalty)
         print(f"\n결과: {total}문제 중 {correct}문제 정답! ({score}점)")
+        print(f"기본 점수 {base_score}점 - 힌트 감점 {penalty}점 (최저 0점)")
         self.update_best_score(score)
 
     def update_best_score(self, score):
@@ -71,8 +91,8 @@ class QuizGame:
         question = read_text("문제를 입력하세요: ")
         choices = [read_text(f"선택지 {number}: ") for number in range(1, 5)]
         answer = read_number("정답 번호 (1~4): ", 1, 4)
-        # 모든 입력이 끝난 뒤 추가하므로 입력 중단 시 불완전한 문제가 남지 않는다.
-        self.quizzes.append(Quiz(question, choices, answer))
+        hint = input("힌트 (생략하려면 Enter): ").strip()
+        self.quizzes.append(Quiz(question, choices, answer, hint))
         if self.save_state():
             print("퀴즈가 추가되고 저장되었습니다.")
         else:

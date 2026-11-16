@@ -1,0 +1,47 @@
+Command: python run_validation.py
+Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]
+test_actual_bonus_cli_roundtrip (test_bonus.BonusProcessTests.test_actual_bonus_cli_roundtrip) ... ok
+test_count_validation (test_bonus.BonusTests.test_count_validation) ... ok
+test_custom_hint_persists (test_bonus.BonusTests.test_custom_hint_persists) ... ok
+test_delete_cancel_and_confirm (test_bonus.BonusTests.test_delete_cancel_and_confirm) ... ok
+test_delete_interrupt_no_mutation (test_bonus.BonusTests.test_delete_interrupt_no_mutation) ... ok
+test_delete_last_and_empty (test_bonus.BonusTests.test_delete_last_and_empty) ... ok
+test_delete_write_failure (test_bonus.BonusTests.test_delete_write_failure) ... ok
+test_hint_penalty_floor_zero (test_bonus.BonusTests.test_hint_penalty_floor_zero) ... ok
+test_hint_repeated_only_one_penalty (test_bonus.BonusTests.test_hint_repeated_only_one_penalty) ... ok
+test_history_empty_and_interruption (test_bonus.BonusTests.test_history_empty_and_interruption) ... ok
+test_history_restart_and_timestamp (test_bonus.BonusTests.test_history_restart_and_timestamp) ... ok
+test_history_saved_after_delete (test_bonus.BonusTests.test_history_saved_after_delete) ... ok
+test_legacy_state_preserves_all_data (test_bonus.BonusTests.test_legacy_state_preserves_all_data) ... ok
+test_malformed_history_recovers (test_bonus.BonusTests.test_malformed_history_recovers) ... ok
+test_multiple_hints (test_bonus.BonusTests.test_multiple_hints) ... ok
+test_old_quiz_hint_fallback_excludes_answer (test_bonus.BonusTests.test_old_quiz_hint_fallback_excludes_answer) ... ok
+test_random_subset_and_original_order (test_bonus.BonusTests.test_random_subset_and_original_order) ... ok
+test_add_and_restart (test_game.GameTests.test_add_and_restart) ... ok
+test_atomic_replace_failure_preserves_old_file (test_game.GameTests.test_atomic_replace_failure_preserves_old_file) ... ok
+test_corrupt_json_and_schema (test_game.GameTests.test_corrupt_json_and_schema) ... ok
+test_defaults (test_game.GameTests.test_defaults) ... ok
+test_empty_quizzes (test_game.GameTests.test_empty_quizzes) ... ok
+test_interrupted_add_does_not_append (test_game.GameTests.test_interrupted_add_does_not_append) ... ok
+test_interrupted_play_retains_previous_best (test_game.GameTests.test_interrupted_play_retains_previous_best) ... ok
+test_invalid_numbers_and_whitespace (test_game.GameTests.test_invalid_numbers_and_whitespace) ... ok
+test_invalid_utf8 (test_game.GameTests.test_invalid_utf8) ... ok
+test_list (test_game.GameTests.test_list) ... ok
+test_menu_interrupts_save_and_exit (test_game.GameTests.test_menu_interrupts_save_and_exit) ... ok
+test_missing_file_recovered_on_exit (test_game.GameTests.test_missing_file_recovered_on_exit) ... ok
+test_play_perfect_and_lower_score (test_game.GameTests.test_play_perfect_and_lower_score) ... ok
+test_quiz_display_and_answers (test_game.GameTests.test_quiz_display_and_answers) ... ok
+test_quiz_schema (test_game.GameTests.test_quiz_schema) ... ok
+test_read_permission_error (test_game.GameTests.test_read_permission_error) ... ok
+test_required_text (test_game.GameTests.test_required_text) ... ok
+test_state_path_is_project_root (test_game.GameTests.test_state_path_is_project_root) ... ok
+test_write_permission_error (test_game.GameTests.test_write_permission_error) ... ok
+test_zero_score_is_played (test_game.GameTests.test_zero_score_is_played) ... ok
+test_actual_cli_add_play_restart (test_game.ProcessTests.test_actual_cli_add_play_restart) ... ok
+test_actual_ctrl_c (test_game.ProcessTests.test_actual_ctrl_c) ... skipped '실제 SIGINT 검증은 WSL/Linux에서 수행'
+test_actual_eof (test_game.ProcessTests.test_actual_eof) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 5.094s
+
+OK (skipped=1)

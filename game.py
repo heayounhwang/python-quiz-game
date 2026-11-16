@@ -1,6 +1,7 @@
 """메뉴와 게임 진행을 관리하는 QuizGame 클래스."""
 import json
 import os
+import random
 from pathlib import Path
 import tempfile
 
@@ -43,9 +44,10 @@ class QuizGame:
             print("등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
             return
         correct = 0
-        total = len(self.quizzes)
+        total = read_number(f"풀 문제 수 (1~{len(self.quizzes)}): ", 1, len(self.quizzes))
+        selected = random.sample(self.quizzes, total)
         print(f"\n퀴즈를 시작합니다! 총 {total}문제")
-        for number, quiz in enumerate(self.quizzes, start=1):
+        for number, quiz in enumerate(selected, start=1):
             print(f"\n[문제 {number}/{total}]")
             quiz.display()
             answer = read_number("정답 번호 (1~4): ", 1, 4)
